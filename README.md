@@ -6,4 +6,4 @@ Tarkoitus olisi myös tallentaa kaikki osaston lait (ja asetukset), ja linkittä
   
 Tietokantakaavio  
 
-[Tietokantakaavio]:(https://github.com/Themis1/LS-rekisteri/blob/master/LS-rekisteri_kaavio.png)
+[Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/LS-rekisteri_kaavio.png)
