@@ -19,7 +19,7 @@ Kutakin asetusta (VNa ja MMMa) voidaan muuttaa useasti ja siten niihin voi liitt
 
   
 
-[Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/LS-rekisteri_kaavio.png)
+[Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/LS-rekisteri_kaavio.png)
 
 ### Mahdollisuus laajennukseen
 
