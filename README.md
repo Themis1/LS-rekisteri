@@ -19,6 +19,8 @@ Kutakin asetusta (VNa ja MMMa) voidaan muuttaa useasti ja siten niihin voi liitt
 
 [Sovellus](https://dashboard.heroku.com/apps/ls-rekisteri)  
 
+[Käyttötapauksia](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/user_story.md)
+
 [Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/LS-rekisteri_kaavio.png)
 
 ### Mahdollisuus laajennukseen
