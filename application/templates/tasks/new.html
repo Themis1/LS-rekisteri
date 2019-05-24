@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('tasks_create') }}">
+<form method="POST" action="{{ url_for('vnat_create') }}">
   <input type="text" name="name"/>
-  <input type="submit" value="Add a new task"/>
+  <input type="text" name="number"/>
+  <input type="text" name="type"/>
+  <input type="submit" value="Lisaa uusi asetus"/>
 </form>
 {% endblock %}
