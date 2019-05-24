@@ -7,12 +7,7 @@ class VNa(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
-    number = db.Column(db.String(9), nullable=False)
-    type = db.Column(db.String(144), nullable=False)
-    done = db.Column(db.Boolean, nullable=False)
 
-    def __init__(self, name, number, type):
+
+    def __init__(self, name):
         self.name = name
-        self.number = number
-        self.type = type
-        self.done = false

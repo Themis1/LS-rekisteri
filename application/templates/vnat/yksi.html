@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Asetus</th>
+      <th>***</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>{{ vna.name }}</td>
+      <td>***</td>
+      <td>
+	<form method="POST" action="{{ url_for('vnat_save', vna_id=vna.id) }}">
+	  <input type="submit" value="Tallenna"/>
+	</form>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="{{ url_for('list.html') }}">Takaisin</a></td>
+    </tr>
+  </table>
+{% endblock %}
