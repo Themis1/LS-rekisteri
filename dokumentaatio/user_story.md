@@ -7,3 +7,5 @@
 5. Lainvalmistelija muokkaa muutosasetusta, kun sen tiedot päivittyvät.  
 6. Lainvalmistelija päivittää muutosasetuksen, kun valtioneuvosto on sen vahvistanut.  
 7. Lainvalmistelija merkitsee muutosasetuksen poistetuksi tai lykätyksi, jos aikataulu muuttuu tai se päätetään olla antamatta.  
+  
+8. Ohjaaja ottaa ulos listauksen kaikista asetuksista.
