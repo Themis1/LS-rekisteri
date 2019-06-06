@@ -1,13 +1,9 @@
 from application import db
+from application.models import Base
 
-class User(db.Model):
+class User(Base):
 
     __tablename__ = "account"
-  
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                              onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
@@ -30,3 +26,17 @@ class User(db.Model):
     def is_authenticated(self):
         return True
 
+    @staticmethod
+    def find_users_with_no_vnas():
+        stmt = text("SELECT Account.id, Account.name FROM Account"
+                    " LEFT JOIN VNa ON VNa.account_id = Account.id"
+                    " WHERE (VNa.done IS null OR VNa.done = 1)"
+                    " GROUP BY Account.id"
+                    " HAVING COUNT(VNa.id) = 0")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response
