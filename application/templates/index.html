@@ -4,19 +4,19 @@
   <p>
     Lainsäädäntörekisterin etusivu
   </p>
-{% if needs_vnas is defined %}
-<p>
-  The following users need work:
-</p>
+  {% if needs_vnas is defined %}
+    <p>
+      Seuraavilla valmistelijoilla ei ole asetuksia:
+    </p>
 
-<ul>
-  {% for user in needs_vnas %}
-  <li>
-    {{user.id}} {{user.name}}
-  </li>
-  {% endfor %}
-</ul>
+    <ul>
+      {% for user in needs_vnas %}
+      <li>
+        {{user.id}} {{user.name}}
+      </li>
+      {% endfor %}
+    </ul>
 
-{% endif %}
+  {% endif %}
 
 {% endblock %}

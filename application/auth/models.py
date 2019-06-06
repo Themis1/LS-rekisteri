@@ -27,12 +27,12 @@ class User(Base):
         return True
 
     @staticmethod
-    def find_users_with_no_vnas():
+    def find_users_with_no_vnas(done=0):
         stmt = text("SELECT Account.id, Account.name FROM Account"
                     " LEFT JOIN VNa ON VNa.account_id = Account.id"
-                    " WHERE (VNa.done IS null OR VNa.done = 1)"
+                    " WHERE (VNa.done IS null OR VNa.done = :done)"
                     " GROUP BY Account.id"
-                    " HAVING COUNT(VNa.id) = 0")
+                    " HAVING COUNT(VNa.id) = 0").params(done=done)
         res = db.engine.execute(stmt)
 
         response = []
