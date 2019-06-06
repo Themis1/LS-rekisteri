@@ -17,7 +17,7 @@ Tietokantaan tallennetaan taulut
 Kullakin muutosasetuksella on vastuuvalmistelija. Tauluun voitaisiin mahdollisesti tallentaa myös muita valmistelijoita, mutta se ei tässä vaiheessa ole välttämätöntä.  
 Kutakin asetusta (VNa ja MMMa) voidaan muuttaa useasti ja siten niihin voi liittyä useita muutosasetuksia. Muutosasetuksella muutetaan aina vain yhtä asetusta.
 
-[Sovellus](https://dashboard.heroku.com/apps/ls-rekisteri)  
+[Sovellus](https://ls-rekisteri.herokuapp.com/)  
 
 [Käyttötapauksia](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/user_story.md)
 
