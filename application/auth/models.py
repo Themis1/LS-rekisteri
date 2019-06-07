@@ -11,7 +11,7 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    vnat = db.relationship("VNa", backref='account', lazy=True)
+    vnat = db.relationship("Vna", backref='account', lazy=True)
 
     def __init__(self, name):
         self.name = name
@@ -31,10 +31,10 @@ class User(Base):
     @staticmethod
     def find_users_with_no_vnas(done=0):
         stmt = text("SELECT Account.id, Account.name FROM Account"
-                    " LEFT JOIN VNa ON VNa.account_id = Account.id"
-                    " WHERE (VNa.done IS null OR VNa.done = :done)"
+                    " LEFT JOIN Vna ON Vna.account_id = Account.id"
+                    " WHERE (Vna.done IS null OR Vna.done = :done)"
                     " GROUP BY Account.id"
-                    " HAVING COUNT(VNa.id) = 0").params(done=done)
+                    " HAVING COUNT(Vna.id) = 0").params(done=done)
         res = db.engine.execute(stmt)
 
         response = []

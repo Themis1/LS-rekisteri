@@ -1,7 +1,7 @@
 from application import db
 from application.models import Base
 
-class VNa(Base):
+class Vna(Base):
     name = db.Column(db.String(144), nullable=False)
     done = db.Column(db.Boolean, nullable=False)
 

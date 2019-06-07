@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, validators
 
-class VNaForm(FlaskForm):
+class VnaForm(FlaskForm):
     name = StringField("Valtioneuvoston asetuksen nimi", [validators.Length(min=2)])
     done = BooleanField("Annettu")
  
