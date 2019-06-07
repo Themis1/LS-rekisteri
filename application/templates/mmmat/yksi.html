@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>MMM Asetus</th>
+      <th>^^^</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>{{ mmma.name }}</td>
+      <td>^^^</td>
+      <td>
+        <form method="POST" action="{{ url_for('mmmat_save', mmma_id=mmma.id) }}">
+          <input type="submit" value="Tallenna"/>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="{{ url_for('list.html') }}">Takaisin</a></td>
+    </tr>
+  </table>
+{% endblock %}
+

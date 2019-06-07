@@ -16,11 +16,20 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('vnat_index') }} ">Listaa asetukset</a>
+            <a class="nav-link" href="{{ url_for('vnat_index') }} ">Listaa valtioneuvoston asetukset</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('vnat_form') }} ">Lisää asetus</a>
+            <a class="nav-link" href="{{ url_for('vnat_form') }} ">Lisää valtioneuvoston asetus</a>
           </li>
+        </ul>
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('mmmat_index') }} ">Listaa ministeriön asetukset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('mmmat_form') }} ">Lisää ministeriön asetus</a>
+          </li>
+
         </ul>
         <div class="form-inline mt-2 mt-md-0">
           {% if current_user.is_authenticated %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Asetus</th>
+      <th>Lista</th>
+      <th></th>
+    </tr>
+    {% for mmma in mmmat %}
+    <tr>
+      <td>{{ mmma.name }}</td>
+      <td>***</td>
+      <td>
+        <form method="POST" action="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">
+          <input type="submit" value="Muokkaa"/>
+        </form>
+      </td>
+      <td><a href="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">Klikkaa</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
