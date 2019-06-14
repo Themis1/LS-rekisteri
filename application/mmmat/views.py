@@ -56,3 +56,13 @@ def mmmat_save():
 
     db.session().add(uusi)
     db.session().commit()
+
+@app.route("/mmmat/", methods= ["POST"])
+@login_required
+def mmmat_delete(mmma_id):
+
+    c = Mmma.query.get(course_id)
+    db.session().delete(c)
+    db.session().commit()
+
+    return redirect(url_for("mmmat_index"))

@@ -3,8 +3,9 @@
 {% block body %}
   <table>
     <tr>
-      <th>Asetus</th>
-      <th>Lista</th>
+      <th>Asetuksen nimi</th>
+      <th>Kuvaus</th>
+      <th></th>
       <th></th>
     </tr>
     {% for mmma in mmmat %}
@@ -14,6 +15,11 @@
       <td>
         <form method="POST" action="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">
           <input type="submit" value="Muokkaa"/>
+        </form>
+      </td>
+      <td>
+        <form method="POST" action_"{{ url_for('delete_mmma', mmma_id=mmma.id) }}">
+          <input type="submit" value="Poista"/>
         </form>
       </td>
       <td><a href="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">Klikkaa</a></td>

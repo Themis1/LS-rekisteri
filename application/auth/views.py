@@ -4,6 +4,7 @@ from flask_login import login_user, logout_user
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
+from application.auth.forms import SignUpForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -27,3 +28,18 @@ def auth_login():
 def auth_logout():
     logout_user()
     return redirect(url_for("index"))    
+
+@app.route("/auth/signup", methods = ["POST"])
+def auth_signup():
+
+    form = SignUpForm(request.form)
+    # mahdolliset validoinnit
+    t = SignUp(form.name.data)
+    t.username = form.username.data
+    t.password = form.password.data
+
+    db.session().add(t)
+    db.session().commit()
+
+    print("Rekisteröinti onnistui")
+    return redirect(url_for("index"))
