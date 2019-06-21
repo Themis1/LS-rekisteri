@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Valmistelija</th>
+      <th>Lista</th>
+      <th></th>
+    </tr>
+    {% for valmistelija in valmistelijat %}
+    <tr>
+      <td>{{ valmistelija.name }}</td>
+      <td>***</td>
+      <td>
+	<form method="POST" action="{{ url_for('valmistelija_yksi', valmistelija_id=valmistelija.id) }}">
+	  <input type="submit" value="Muokkaa"/>
+	</form>
+      </td>
+      <td><a href="{{ url_for('valmistelijat_yksi', valmistelija_id=valmistelija.id) }}">Klikkaa</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

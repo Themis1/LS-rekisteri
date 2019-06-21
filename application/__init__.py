@@ -24,6 +24,8 @@ from application.auth import views
 from application.mmmat import models
 from application.mmmat import views
 
+from application.valmistelijat import models
+from application.valmistelijat import views
 
 from application.auth.models import User
 from os import urandom

@@ -10,11 +10,29 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="#">Lainsäädäntörekisteri</a>
+      <div class="form-inline mt-2 mt-md-0">
+          {% if current_user.is_authenticated %}
+          <a href="{{ url_for('auth_logout') }}">Heippa {{ current_user.name }} -- Logout</a>
+          {% else %}
+          <ul>
+          <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
+          </ul>
+          <ul>
+          <a href="{{ url_for('auth_signup') }}">Rekisteröidy</a>
+          </ul>
+          {% endif %}
+      </div>
+    </nav>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-6">
+     
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
+
+        <ul>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('vnat_index') }} ">Listaa valtioneuvoston asetukset</a>
           </li>
@@ -22,6 +40,7 @@
             <a class="nav-link" href="{{ url_for('vnat_form') }} ">Lisää valtioneuvoston asetus</a>
           </li>
         </ul>
+
         <ul>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('mmmat_index') }} ">Listaa ministeriön asetukset</a>
@@ -29,16 +48,18 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('mmmat_form') }} ">Lisää ministeriön asetus</a>
           </li>
-
         </ul>
-        <div class="form-inline mt-2 mt-md-0">
-          {% if current_user.is_authenticated %}
-          <a href="{{ url_for('auth_logout') }}">Heippa {{ current_user.name }} -- Logout</a>
-          {% else %}
-          <a href="{{ url_for('auth_login') }}">Kirjaudu sisään</a>
-          <a href="{{ url_for('auth_signup') }}">Rekisteröidy</a>
-          {% endif %}
-        </div>
+
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('valmistelijat_index') }} ">Listaa valmistelijat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('valmistelijat_form') }} ">Lisää uusi valmistelija</a>
+          </li>
+        </ul>
+        
+
       </div>
     </nav>
       
@@ -57,3 +78,10 @@
    
   </body>
 </html>
+
+
+
+
+
+
+

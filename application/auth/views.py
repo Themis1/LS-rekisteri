@@ -33,6 +33,9 @@ def auth_logout():
 def auth_signup():
 
     form = SignUpForm(request.form)
+    if not form.validate():
+        return render_template("auth/signup.html", form = SignUpForm())
+
     # mahdolliset validoinnit
     t = SignUp(form.name.data)
     t.username = form.username.data
