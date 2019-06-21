@@ -12,7 +12,7 @@
       <td>{{ valmistelija.name }}</td>
       <td>***</td>
       <td>
-	<form method="POST" action="{{ url_for('valmistelija_yksi', valmistelija_id=valmistelija.id) }}">
+	<form method="POST" action="{{ url_for('valmistelijat_yksi', valmistelija_id=valmistelija.id) }}">
 	  <input type="submit" value="Muokkaa"/>
 	</form>
       </td>
