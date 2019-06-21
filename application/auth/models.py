@@ -29,6 +29,9 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def roles(self):
+        return ["ADMIN"]
+
     @staticmethod
     def find_users_with_no_vnas(done=0):
         stmt = text("SELECT Account.id, Account.name FROM Account"
