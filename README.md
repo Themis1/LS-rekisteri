@@ -23,6 +23,8 @@ Tietokannan käyttäjä ja valmistelija voivat olla eri henkilöt. Siksi molemmi
 
 [Käyttöohje](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/kayttoohje.md)
 
+[Asennusohje](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/asennusohje.md)
+
 [Käyttötapauksia](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/user_story.md)
 
 [Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/LS-rekisteri_kaavio.png)
