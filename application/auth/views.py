@@ -29,15 +29,21 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))    
 
-@app.route("/auth/signup", methods = ["POST"])
+@app.route("/auth/signup", methods = ["GET", "POST"])
 def auth_signup():
+    if request.method == "GET":
+        return render_template("auth/signup.html", form = SignUpForm())
 
     form = SignUpForm(request.form)
+
     if not form.validate():
         return render_template("auth/signup.html", form = SignUpForm())
 
+    if (User.query.filter_by(username=form.username.data).first() != None):
+        return render_template("auth/signup.html", form = form, error="Käyttäjätunnus varattu")
+
     # mahdolliset validoinnit
-    t = SignUp(form.name.data)
+    t = User(form.name.data)
     t.username = form.username.data
     t.password = form.password.data
 
