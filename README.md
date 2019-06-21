@@ -21,9 +21,13 @@ Tietokannan käyttäjä ja valmistelija voivat olla eri henkilöt. Siksi molemmi
 
 [Sovellus](https://ls-rekisteri.herokuapp.com/)  
 
+[Käyttöohje](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/kayttoohje.md)
+
 [Käyttötapauksia](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/user_story.md)
 
 [Tietokantakaavio](https://github.com/Themis1/LS-rekisteri/blob/master/dokumentaatio/LS-rekisteri_kaavio.png)
+
+
 
 ### Mahdollisuus laajennukseen
 
