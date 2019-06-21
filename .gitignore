@@ -1,2 +1,4 @@
 venv
 /venv
+application/__pycache__/
+application/vnat.db
