@@ -41,7 +41,7 @@ def vnat_set_done(vna_id):
     t.done = True
     db.session().commit()
   
-    return redirect(url_for("vnat_index"))
+    return redirect(url_for("/vnat_index"))
 
 
 @app.route("/vnat/", methods=["GET"])
@@ -56,3 +56,12 @@ def vnat_save():
 
     db.session().add(uusi)
     db.session().commit()
+
+@app.route("/vnat/<vna_id>/", methods=["POST"])
+@login_required
+def delete_vna(vna_id):
+    c = Vna.query.get(vna_id)
+    db.session().delete(c)
+    db.session().commit()
+
+    return redirect(url_for("vnat_index"))

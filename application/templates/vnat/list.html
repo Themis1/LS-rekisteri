@@ -16,7 +16,10 @@
 	  <input type="submit" value="Muokkaa"/>
 	</form>
       </td>
-      <td><a href="{{ url_for('vnat_yksi', vna_id=vna.id) }}">Klikkaa</a></td>
+      <td>
+        <form method="post" action="{{ url_for('delete_vna', vna_id=vna.id) }}"><input type="submit" value="Poista VNa"/>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </table>

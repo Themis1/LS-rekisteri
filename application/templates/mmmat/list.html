@@ -18,11 +18,9 @@
         </form>
       </td>
       <td>
-        <form method="POST" action_"{{ url_for('delete_mmma', mmma_id=mmma.id) }}">
-          <input type="submit" value="Poista"/>
+        <form method="POST" action="{{ url_for('delete_mmma', mmma_id=mmma.id) }}"><input type="submit" value="Poista MMMa"/>
         </form>
       </td>
-      <td><a href="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">Klikkaa</a></td>
     </tr>
     {% endfor %}
   </table>
