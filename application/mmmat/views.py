@@ -25,7 +25,7 @@ def mmmat_create():
         return render_template("mmmat/new.html", form = form)
 
     t = Mmma(form.name.data)
-    t.done = form.done.data
+    t.kuvaus = form.kuvaus.data
     t.account_id = current_user.id
 
     db.session().add(t)
@@ -33,15 +33,6 @@ def mmmat_create():
     
     return redirect(url_for("mmmat_index"))
 
-@app.route("/mmmat/<mmma_id>", methods=["POST"])
-@login_required
-def mmmat_set_done(mmma_id):
-
-    t = Mmma.query.get(mmma_id)
-    t.done = True
-    db.session().commit()
-  
-    return redirect(url_for("mmmat_index"))
 
 
 @app.route("/mmmat/", methods=["GET"])
