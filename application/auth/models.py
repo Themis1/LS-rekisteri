@@ -38,7 +38,7 @@ class User(Base):
                     " LEFT JOIN Vna ON Vna.account_id = Account.id"
                     " LEFT JOIN Mmma ON Mmma.account_id = Account.id"
                     " GROUP BY Account.id"
-                    " HAVING COUNT(Vna.id) = 0").params(done=done)
+                    " HAVING COUNT(Vna.id) = 0")
         res = db.engine.execute(stmt)
 
         response = []
