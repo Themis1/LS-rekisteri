@@ -6,16 +6,9 @@
   </p>
   {% if needs_vnas is defined %}
     <p>
-      Seuraavilla valmistelijoilla ei ole asetuksia:
+      Tervetuloa lainsäädäntörekisteriin!
     </p>
 
-    <ul>
-      {% for user in needs_vnas %}
-      <li>
-        {{user.id}} {{user.name}}
-      </li>
-      {% endfor %}
-    </ul>
 
   {% endif %}
 
