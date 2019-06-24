@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, validators
+from wtforms import StringField, validators
 
 class VnaForm(FlaskForm):
     name = StringField("Valtioneuvoston asetuksen nimi", [validators.Length(min=2)])
-    done = BooleanField("Annettu")
+    kuvaus = StringField("Kuvaus")
  
     class Meta:
         csrf = False
