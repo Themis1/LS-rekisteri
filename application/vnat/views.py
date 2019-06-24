@@ -25,24 +25,13 @@ def vnat_create():
         return render_template("vnat/new.html", form = form)
 
     t = Vna(form.name.data)
-    t.done = form.done.data
+    t.kuvaus = form.kuvaus.data
     t.account_id = current_user.id
 
     db.session().add(t)
     db.session().commit()
     
     return redirect(url_for("vnat_index"))
-
-@app.route("/vnat/<vna_id>", methods=["POST"])
-@login_required
-def vnat_set_done(vna_id):
-
-    t = Vna.query.get(vna_id)
-    t.done = True
-    db.session().commit()
-  
-    return redirect(url_for("/vnat_index"))
-
 
 @app.route("/vnat/", methods=["GET"])
 def vnat_yksi(vna_id):
