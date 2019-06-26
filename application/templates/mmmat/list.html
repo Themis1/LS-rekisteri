@@ -11,7 +11,7 @@
     {% for mmma in mmmat %}
     <tr>
       <td>{{ mmma.name }}</td>
-      <td>***</td>
+      <td>{{ mmma.kuvaus }}</td>
       <td>
         <form method="POST" action="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">
           <input type="submit" value="Muokkaa"/>

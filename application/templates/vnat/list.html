@@ -10,7 +10,7 @@
     {% for vna in vnat %}
     <tr>
       <td>{{ vna.name }}</td>
-      <td>***</td>
+      <td>{{ vna.kuvaus }}</td>
       <td>
 	<form method="POST" action="{{ url_for('vnat_yksi', vna_id=vna.id) }}">
 	  <input type="submit" value="Muokkaa"/>

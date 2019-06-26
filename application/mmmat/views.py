@@ -44,6 +44,7 @@ def mmmat_yksi(mmma_id):
 @app.route("/mmmat/", methods=["POST"])
 def mmmat_save():
     uusi = Mmma(request.form.get("name"))
+    uusi.kuvaus = Mmma(request.form.get("kuvaus"))
 
     db.session().add(uusi)
     db.session().commit()

@@ -42,6 +42,7 @@ def vnat_yksi(vna_id):
 @app.route("/vnat/", methods=["POST"])
 def vnat_save():
     uusi = Vna(request.form.get("name"))
+    uusi.kuvaus = Vna(request.form.get("kuvaus"))
 
     db.session().add(uusi)
     db.session().commit()
