@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h1>Valmistelijat</h1>
+<h3>Valmistelijat</h3>
   <table class="table table-sm table-hover table-bordered table-striped">
     <tr class="thead-dark">
       <th>Valmistelija</th>
@@ -12,11 +12,8 @@
     <tr>
       <td>{{ valmistelija.name }}</td>
       <td>{{ valmistelija.titteli }}</td>
-      <td>
-	<form method="POST" action="{{ url_for('valmistelija_view', valmistelija_id=valmistelija.id) }}">
-	  <input type="submit" value="Muokkaa"/>
-	</form>
-      </td>
+      <td><button class="btn btn-info" type="button" onclick="location.href='/valmistelijat/{{valmistelija.id}}'" >Näytä tiedot</button></td>
+      <td><form method="POST" action="{{ url_for('delete_valmistelija', valmistelija_id=valmistelija.id) }}"><input type="submit" value="Poista valmistelija"/></form></td>
     </tr>
     {% endfor %}
   </table>

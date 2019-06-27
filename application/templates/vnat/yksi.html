@@ -1,23 +1,23 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<h3>{{ vna_name }}</h3>
+<form method="POST" action"{{ url_for('get_vna', vna_id=vna.id) }}">
   <table>
     <tr>
-      <th>Asetus</th>
-      <th>***</th>
+      <th>Asetuksen nimi</th>
+      <th>Kuvaus</th>
       <th></th>
     </tr>
     <tr>
-      <td>{{ vna.name }}</td>
-      <td>***</td>
-      <td>
-	<form method="POST" action="{{ url_for('vnat_save', vna_id=vna.id) }}">
-	  <input type="submit" value="Tallenna"/>
-	</form>
-      </td>
+      <td>{{ form.name(readonly=true) }}</td>
+      <td>{{ form.kuvaus(readonly=true) }}</td>
+      <td><button class="btn btn-info btn-lg" type="button" onclick="location.href='/vnat/{{vna.id}}/edit'" >Muokkaa</button></td>
     </tr>
     <tr>
-      <td><a href="{{ url_for('list.html') }}">Takaisin</a></td>
+      <td><a href="{{ url_for('vnat_index') }}">Takaisin</a></td>
     </tr>
   </table>
+</form>
 {% endblock %}
+

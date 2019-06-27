@@ -1,26 +1,22 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Asetus</th>
-      <th>Lista</th>
+<h3>Valtioneuvoston asetukset</h3>
+  <table class="table table-sm table-hover table-bordered table-striped">
+    <tr class="thead-dark">>
+      <th>Asetuksen nimi</th>
+      <th>Kuvaus</th>
+      <th></th>
       <th></th>
     </tr>
     {% for vna in vnat %}
     <tr>
       <td>{{ vna.name }}</td>
       <td>{{ vna.kuvaus }}</td>
-      <td>
-	<form method="POST" action="{{ url_for('vnat_yksi', vna_id=vna.id) }}">
-	  <input type="submit" value="Muokkaa"/>
-	</form>
-      </td>
-      <td>
-        <form method="post" action="{{ url_for('delete_vna', vna_id=vna.id) }}"><input type="submit" value="Poista VNa"/>
-        </form>
-      </td>
+      <td><button class="btn btn-info" type="button" onclick="location.href='/vnat/{{vna.id}}'" >Näytä tiedot</button></td>
+      <td><form method="POST" action="{{ url_for('delete_vna', vna_id=vna.id) }}"><input type="submit" value="Poista asetus"/></form></td>
     </tr>
     {% endfor %}
   </table>
 {% endblock %}
+

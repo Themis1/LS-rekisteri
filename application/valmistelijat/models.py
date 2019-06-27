@@ -7,8 +7,7 @@ class Valmistelija(Base):
     email = db.Column(db.String(32), nullable=False)
     puh = db.Column(db.String(32), nullable=False)
 
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
-                           nullable=False)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
 
     def __init__(self, name, titteli, email, puh):
