@@ -1,22 +1,22 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
+<h1>Valmistelijat</h1>
+  <table class="table table-sm table-hover table-bordered table-striped">
+    <tr class="thead-dark">
       <th>Valmistelija</th>
-      <th>Lista</th>
+      <th>Titteli</th>
       <th></th>
     </tr>
     {% for valmistelija in valmistelijat %}
     <tr>
       <td>{{ valmistelija.name }}</td>
-      <td>***</td>
+      <td>{{ valmistelija.titteli }}</td>
       <td>
-	<form method="POST" action="{{ url_for('valmistelijat_yksi', valmistelija_id=valmistelija.id) }}">
+	<form method="POST" action="{{ url_for('valmistelija_view', valmistelija_id=valmistelija.id) }}">
 	  <input type="submit" value="Muokkaa"/>
 	</form>
       </td>
-      <td><a href="{{ url_for('valmistelijat_yksi', valmistelija_id=valmistelija.id) }}">Klikkaa</a></td>
     </tr>
     {% endfor %}
   </table>

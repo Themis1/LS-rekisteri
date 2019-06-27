@@ -6,53 +6,74 @@ from application.valmistelijat.models import Valmistelija
 from application.valmistelijat.forms import ValmistelijaForm
 
 @app.route("/valmistelijat/", methods=["GET"])
-def valmistelijat_index():
+def valmistelija_index():
     return render_template("valmistelijat/list.html", valmistelijat = Valmistelija.query.all())
+
+
 
 @app.route("/valmistelijat/new/")
 @login_required
-def valmistelijat_form():
+def valmistelija_form():
     return render_template("valmistelijat/new.html", form = ValmistelijaForm())
 
 
 
 @app.route("/valmistelijat/", methods=["POST"])
 @login_required
-def valmistelijat_create():
+def valmistelija_create():
     form = ValmistelijaForm(request.form)
 
     if not form.validate():
         return render_template("valmistelijat/new.html", form = form)
 
-    t = Valmistelija(form.name.data)
-    t.done = form.done.data
-    t.account_id = current_user.id
-
-    db.session().add(t)
-    db.session().commit()
-    
-    return redirect(url_for("valmistelijat_index"))
-
-@app.route("/valmistelijat/<valmistelija_id>", methods=["POST"])
-@login_required
-def valmistelijat_set_done(valmistelija_id):
-
-    t = Valmistelija.query.get(valmistelija_id)
-    t.done = True
-    db.session().commit()
-  
-    return redirect(url_for("valmistelijat_index"))
-
-
-@app.route("/valmistelijat/", methods=["GET"])
-def valmistelijat_yksi(valmistelija_id):
-    id = Valmistelija.query.get(valmistelija_id)
-    return render_template("valmistelijat/yksi.html", valmistelijat_id = id)
-
-
-@app.route("/valmistelijat/", methods=["POST"])
-def valmistelijat_save():
-    uusi = Valmistelija(request.form.get("name"))
+    uusi = Valmistelija(form.name.data, form.titteli.data, form.email.data, form.puh.data)
+    uusi.account_id = current_user.id
 
     db.session().add(uusi)
     db.session().commit()
+    
+    return redirect(url_for("valmistelija_index"))
+
+
+
+@app.route("/valmistelijat/", methods=["POST"])
+def valmistelija_edit():
+
+    if request.method == "GET":
+        form = EditValmistelijaForm(obj=Valmistelija.query.get(valmistelija_id))
+
+        return render_template("valmistelija/valmistelija_edit.html", form = form)
+ 
+    form = EditValmistelijaForm(request.form)
+
+    valmistelija = Valmistelija.query.get(valmistelija_id)
+    valmistelijaa.name = form.name.data
+    valmistelija.email = form.email.data
+    valmistelija.puh = form.puh.data
+
+
+    db.session().commit()
+
+    return redirect(url_for("valmistelija_index"))
+
+
+@app.route("/valmistelijat/<valmistelija_id>", methods=["GET"])
+@login_required
+def valmistelija_view(valmistelija_id):
+    valmistelija = Valmistelija.query.get(valmistelija_id)
+    
+    if valmistelija is None:
+        return redirect(url_for("index"))
+
+    return render_template("valmistelijat/valmistelija.html", valmistelija = valmistelija)
+
+@app.route("/valmistelijat/<valmistelija_id>/", methods=["POST"])
+@login_required
+def delete_valmistelija(valmistelija_id):
+
+    c = Valmistelija.query.get(valmistelija_id)
+    db.session().delete(c)
+    db.session().commit()
+
+    return redirect(url_for("valmistelija_index"))
+

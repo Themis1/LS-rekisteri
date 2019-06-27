@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
+<h3>Maa- ja metsätalousministeriön asetukset</h3>
+  <table class="table table-sm table-hover table-bordered table-striped">
+    <tr class="thead-dark">>
       <th>Asetuksen nimi</th>
       <th>Kuvaus</th>
       <th></th>
@@ -12,17 +13,11 @@
     <tr>
       <td>{{ mmma.name }}</td>
       <td>{{ mmma.kuvaus }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('mmmat_yksi', mmma_id=mmma.id) }}">
-          <input type="submit" value="Muokkaa"/>
-        </form>
-      </td>
-      <td>
-        <form method="POST" action="{{ url_for('delete_mmma', mmma_id=mmma.id) }}"><input type="submit" value="Poista MMMa"/>
-        </form>
-      </td>
+      <td><button class="btn btn-info" type="button" onclick="location.href='/mmmat/{{mmma.id}}'" >Näytä tiedot</button></td>
+      <td><form method="POST" action="{{ url_for('delete_mmma', mmma_id=mmma.id) }}"><input type="submit" value="Poista asetus"/></form></td>
     </tr>
     {% endfor %}
   </table>
 {% endblock %}
+
 

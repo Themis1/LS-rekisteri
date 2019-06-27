@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+  {% block body %}
+  <h3>Valmistelijan tiedot</h3>
+  
+  <div>
+    <ul>
+      <li>Nimi: {{ valmistelija.name }}</li>
+      <li>Titteli: {{ valmistelija.titteli }}</li>
+      <li>Sähköposti: {{ valmistelija.email }}</li>
+      <li>Puhelinnumero: {{ valmistelija.puh }}</li>
+    </ul>
+
+    <p><a class="btn btn-dark" href="{{ url_for('valmistelijat_edit_profile', valmistelija_id=valmistelija.id) }}">Päivitä profiili</a></p>
+    {% if user.get_id() == 1 %}
+    <p><button class="btn btn-danger" onclick="sendDeleteRequest('{{ url_for('valmistelijat_delete_profile', valmistelija_id=valmistelija.id) }}')">Poista profiili</button></p>
+    {% endif %}
+    <td><a href="{{ url_for('list.html') }}">Takaisin</a></td>
+  </div>
+  
+  <div>
+    <h5>Valmistelijan asetukset</h5>
+    <ul>
+      {% for vna in valmistelija.vnas %}
+        <li><a href="{{ url_for('vna_view', vna_id=vna.id) }}">{{ vna.name }}</a></li>
+      {% else %}
+        <li>Ei asetuksia</li>
+      {% endfor %}
+    </ul>
+    <td><a href="{{ url_for('list.html') }}">Takaisin</a></td>
+
+  </div>
+

@@ -103,7 +103,7 @@ def insert_initial_superuser(*args, **kwargs):
             "admin",
             "admin@admin.com")
     db.session.add(super_user)
-db.session.commit()
+    db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
