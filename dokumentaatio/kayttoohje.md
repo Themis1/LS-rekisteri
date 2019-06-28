@@ -1,6 +1,7 @@
 # Käyttöohje
 
-* Sovellukseen on tällä hetkellä mahdollisuus rekisteröityä uutena käyttäjänä, jolloin automaattisesti saa 
+* Sovellukseen voi kirjautua pääkäyttäjän tunnuksin: **admin, admin**
+* Sovellukseen on tällä hetkellä myös mahdollisuus rekisteröityä uutena käyttäjänä, jolloin automaattisesti saa 
 oikeudet käyttää sovelluksen kaikkia toiminnallisuuksia. Myöhemmin on aikomus tarpeen mukaan rajoittaa 
 peruskäyttäjien toiminnallisuuksia.
 * Sovellukseen on mahdollisuus kirjautua kaikilta sivuilta.
@@ -11,6 +12,6 @@ asetus taikka valmistelija.
 * Kirjautuneena käyttäjänä on myös mahdollisuus poistaa valtioneuvoston asetus tai maa- ja metsätalousministeriön 
 asetus, mutta ei valmistelijaa.
 * Poistaminen tapahtuu nappia klikkaamalla.
-* Myöhemmin tulee mahdollisuus muokata asetuksia. Tämä ei tällä hetkellä onnistu.
-* Asetuksen lisääminen tapahtuu lisäyssivulta. Sivulla olevat laatikot täytetään ja painetaan nappia.
-* Taulut ovat vielä epätäydelliset, joten kustakin puuttuu suunniteltuja tietoja.
+* Kaikkia edellisiä pystyy myös muokkaamaan.
+* Uusien asetusten ja käyttäjien lisääminen tapahtuu lisäyssivulta. Sivulla olevat laatikot täytetään ja painetaan nappia.
+
