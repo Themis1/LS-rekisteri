@@ -10,14 +10,10 @@ from application.valmistelijat.forms import EditValmistelijaForm
 def valmistelija_index():
     return render_template("valmistelijat/list.html", valmistelijat = Valmistelija.query.all())
 
-
-
 @app.route("/valmistelijat/new/")
 @login_required
 def valmistelija_form():
     return render_template("valmistelijat/new.html", form = ValmistelijaForm())
-
-
 
 @app.route("/valmistelijat/", methods=["POST"])
 @login_required
@@ -32,7 +28,7 @@ def valmistelija_create():
 
     db.session().add(uusi)
     db.session().commit()
-    
+
     return redirect(url_for("valmistelija_index"))
 
 @app.route("/valmistelijat/<valmistelija_id>/", methods=["GET"])
@@ -49,7 +45,7 @@ def edit_valmistelija(valmistelija_id):
     if request.method == "GET":
         form = EditValmistelijaForm(obj=Valmistelija.query.get(valmistelija_id))
         return render_template("valmistelijat/edit_valmistelija.html", valmistelija=Valmistelija.query.get(valmistelija_id), form = form)
- 
+
     form = EditValmistelijaForm(request.form)
 
     if not form.validate():
@@ -60,9 +56,7 @@ def edit_valmistelija(valmistelija_id):
     valmistelija.email = form.email.data
     valmistelija.puh = form.puh.data
 
-
     db.session().commit()
-
     return redirect(url_for("valmistelija_index"))
 
 
@@ -75,4 +69,3 @@ def delete_valmistelija(valmistelija_id):
     db.session().commit()
 
     return redirect(url_for("valmistelija_index"))
-

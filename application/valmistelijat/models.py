@@ -2,10 +2,10 @@ from application import db
 from application.models import Base
 
 class Valmistelija(Base):
-    name = db.Column(db.String(32), nullable=False)
-    titteli = db.Column(db.String(32), nullable=False)
-    email = db.Column(db.String(32), nullable=False)
-    puh = db.Column(db.String(32), nullable=False)
+    name = db.Column(db.String(30), nullable=False)
+    titteli = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(30), nullable=False)
+    puh = db.Column(db.String(30), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
