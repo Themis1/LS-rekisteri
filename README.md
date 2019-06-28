@@ -11,12 +11,10 @@ Tarkoitus olisi myös tallentaa kaikki osaston lait (ja asetukset), ja linkittä
 Tietokantaan tallennetaan taulut  
 * VNa (valtioneuvoston asetus)  
 * MMMa (maa- ja metsätalousministeriön asetus)  
-* Muutosasetus  (puuttuu vielä)
 * Valmistelija  
 * Käyttäjä  
   
-Kullakin muutosasetuksella on vastuuvalmistelija. Tauluun voitaisiin mahdollisesti tallentaa myös muita valmistelijoita, mutta se ei tässä vaiheessa ole välttämätöntä.  
-Kutakin asetusta (VNa ja MMMa) voidaan muuttaa useasti ja siten niihin voi liittyä useita muutosasetuksia. Muutosasetuksella muutetaan aina vain yhtä asetusta.  
+Kullakin asetuksella on vastuuvalmistelija. Tauluun voitaisiin mahdollisesti tallentaa myös muita valmistelijoita, mutta se ei tässä vaiheessa ole välttämätöntä.  
 Tietokannan käyttäjä ja valmistelija voivat olla eri henkilöt. Siksi molemmille on omat taulut.  
 
 [Sovellus](https://ls-rekisteri.herokuapp.com/)  
@@ -34,4 +32,10 @@ Tietokannan käyttäjä ja valmistelija voivat olla eri henkilöt. Siksi molemmi
 ### Mahdollisuus laajennukseen
 
 Tietokantaa on tarkoitus laajentaa koskemaan myös lakeja ja niihin liittyviä hallituksen esityksiä (HE). Nämä on merkitty tietokantakaavioon keltaisella.  
+Lisäksi asetuksiin olisi tarkoitus lisätä myöhemmin oma taulunsa muutosasetuksille. Tämäkin on merkitty keltaisella.  
+
+### Puutteita  
+
+Tietokannasta jäi ajanpuutteen vuoksi puuttumaan suuri osa kyselyistä sekä paremmat linkit taulujen välillä. Tarkoitus oli myös toteuttaa vetovalikko kuhunkin asetukseen, josta olisi voinut valita asetusta valmistelevan valmistelijan. Tämä jäi toimimattomaksi, joten poistin sen palautetusta versiosta.  
+Tärkein puutos, joka vaikuttaa käyttöön, on edellä mainittu muutosasetus-taulu, jonka suunnittelen vielä lisääväni myöhemmin.  
 ***
