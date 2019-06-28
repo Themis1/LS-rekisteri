@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
 user_role = db.Table("userrole", db.Column("user_id", db.Integer, db.ForeignKey("account.id", ondelete="CASCADE")), db.Column("role_id", db.Integer, db.ForeignKey("role.id")))
 
 class Role(Base):
-    name = db.Column(db.String(32), nullable = False, unique=True)
+    name = db.Column(db.String(30), nullable = False, unique=True)
     superuser = db.Column(db.Boolean, default=False, nullable=False, unique=False)
 
     def __init__(self, role_name, superuser = False):
@@ -21,10 +21,10 @@ class User(Base):
 
     __tablename__ = "account"
 
-    name = db.Column(db.String(32), nullable=False)
-    username = db.Column(db.String(32), unique=True, nullable=False)
-    password = db.Column(db.String(32), nullable=False)
-    email = db.Column(db.String(32), unique=True, nullable=False)
+    name = db.Column(db.String(30), nullable=False)
+    username = db.Column(db.String(30), unique=True, nullable=False)
+    password = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(30), unique=True, nullable=False)
 
     roles = db.relationship("Role", secondary=user_role, lazy="subquery", backref=db.backref("users", passive_deletes=True, lazy=True))
     vnat = db.relationship("Vna", backref='account', passive_deletes=True, lazy=True)

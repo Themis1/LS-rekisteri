@@ -5,6 +5,7 @@ from application import app, db
 from application.vnat.models import Vna
 from application.vnat.forms import VnaForm
 from application.vnat.forms import EditVnaForm
+from application.valmistelijat.models import Valmistelija
 
 @app.route("/vnat/", methods=["GET"])
 def vnat_index():
@@ -19,6 +20,8 @@ def vnat_form():
 @login_required
 def vnat_create():
     form = VnaForm(request.form)
+    valmistelijat = Valmistelija.query.all()
+    form.valmistelija_id.choises = [(a.id, a.name) for a in users]
 
     if not form.validate():
         return render_template("vnat/new.html", form = form)
@@ -28,7 +31,7 @@ def vnat_create():
 
     db.session().add(asetus)
     db.session().commit()
-    
+
     return redirect(url_for("vnat_index"))
 
 
@@ -41,13 +44,16 @@ def get_vna(vna_id):
 
 
 @app.route("/vnat/<vna_id>/edit", methods=["GET","POST"])
+@login_required
 def edit_vna(vna_id):
+    valmistelijat = Valmistelija.query.all()
 
     if request.method == "GET":
         form = EditVnaForm(obj=Vna.query.get(vna_id))
         return render_template("vnat/edit_vna.html", vna=Vna.query.get(vna_id), form = form)
 
     form = EditVnaForm(request.form)
+    form.valmistelija_id.choises = [(a.id. a.name) for a in valmistelijat]
 
     if not form.validate():
         return render_template("vnat/edit_vna.html", vna=Vna.query.get(vna_id), form=form)

@@ -40,14 +40,6 @@ def auth_signup():
     if not form.validate():
         return render_template("auth/signup.html", form = form)
 
-#    if (User.query.filter_by(username=form.username.data).first() != None):
-#        return render_template("auth/signup.html", form = form, error="Käyttäjätunnus varattu")
-
-    # mahdolliset validoinnit
-#    t = User(form.name.data)
-#    t.username = form.username.data
-#    t.password = form.password.data
-
     user = User(form.name.data, form.username.data, form.password.data, form.email.data)
 
     db.session().add(user)

@@ -68,12 +68,11 @@ from application.mmmat import views
 from application.valmistelijat import models
 from application.valmistelijat import views
 
-from application.auth.models import User
 
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
 from application.auth.models import Role, User
-
+from application.valmistelijat.models import Valmistelija
 
 @event.listens_for(Engine, "connect")
 def set_sqlite_pragma(dbapi_connection, connection_record):
@@ -103,6 +102,17 @@ def insert_initial_superuser(*args, **kwargs):
             "admin",
             "admin@admin.com")
     db.session.add(super_user)
+    db.session.commit()
+
+@event.listens_for(Valmistelija.__table__, 'after_create')
+def insert_initial_valmistelija(*args, **kwargs):
+    valmistelija = Valmistelija(
+            "ei tiedossa",
+            "   ",
+            "   ",
+            "   ",
+            "   ")
+    db.session.add(valmistelija)
     db.session.commit()
 
 @login_manager.user_loader
