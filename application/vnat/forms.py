@@ -1,16 +1,17 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, validators, HiddenField, SubmitField
+from wtforms import StringField, validators, HiddenField, SubmitField, SelectField
 from application.vnat.models import Vna
 
 class VnaForm(FlaskForm):
-    name = StringField("Valtioneuvoston asetuksen nimi", [validators.DataRequired(message=("Nimi ei voi olla tyhjä")), validators.Length(min=2, max=300)])
-    kuvaus = StringField("Kuvaus", [validators.DataRequired(message=("Kuvaus ei voi olla tyhjä")), validators.Length(min=2, max=300)])
- 
+    name = StringField("Valtioneuvoston asetuksen nimi", [validators.DataRequired(message=("Nimi ei voi olla tyhjä")), validators.Length(min=3, max=300)])
+    kuvaus = StringField("Kuvaus", [validators.DataRequired(message=("Kuvaus ei voi olla tyhjä")), validators.Length(min=3, max=300)])
+    valmistelija_id = SelectField("Asetuksen valmistelija", coerce=int)
+
     class Meta:
         csrf = False
 
 class EditVnaForm(FlaskForm):
-    name = StringField("Asetuksen nimi", [
+    name = StringField("Valtioneuvoston asetuksen nimi", [
         validators.DataRequired(message=("Anna asetuksen nimi")),
         validators.Length(min=3, max=300, message=("Asetuksen nimessä on 3-300 merkkiä"))
     ])
@@ -18,6 +19,8 @@ class EditVnaForm(FlaskForm):
         validators.Length(min=3, max=300, message=("Kuvauksessa on 3-300 merkkiä")),
         validators.DataRequired(message=("Anna asetukselle kuvaus"))
     ])
+    valmistelija_id = SelectField("Asetuksen valmistelija", coerce=int)
+
     id = HiddenField("Asetuksen ID", [
         validators.DataRequired(message=("ID puuttuu"))
     ])

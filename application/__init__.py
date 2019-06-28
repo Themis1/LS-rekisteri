@@ -26,7 +26,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 login_manager.login_view = "auth_login"
-login_manager.login_message = "Kirjaudu sisään, jos haluat jatkaa elämää."
+login_manager.login_message = "Kirjaudu sisaan, jos haluat jatkaa elamaa."
 
 def login_required(role="ANY"):
     def wrapper(fn):

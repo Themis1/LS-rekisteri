@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from flask_login import login_required, current_user
+from flask_login import login_required, login_manager, current_user
 
 from application import app, db
 from application.vnat.models import Vna
@@ -23,7 +23,7 @@ def vnat_create():
     if not form.validate():
         return render_template("vnat/new.html", form = form)
 
-    asetus = Vna(form.name.data, form.kuvaus.data)
+    asetus = Vna(form.name.data, form.kuvaus.data, form.valmistelija_id.data)
     asetus.account_id = current_user.id
 
     db.session().add(asetus)
@@ -57,6 +57,7 @@ def edit_vna(vna_id):
     vna.id = form.id.data
     vna.name = form.name.data
     vna.kuvaus = form.kuvaus.data
+    vna.valmistelija_id = form.valmistelija_id.data
     db.session().commit()
 
     return redirect(url_for("vnat_index"))
